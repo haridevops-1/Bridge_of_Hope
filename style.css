@@ -1,144 +1,155 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-/* --- 1. General Resets and Page Layout --- */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    min-height: 100vh;
-    background-color: #f0f2f5;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
+  font-family: "Poppins", sans-serif;
+  background-color: #ffffff;
+  height: 100vh;
+  display: flex;
+  overflow: hidden;
 }
 
-/* --- 2. Container Styling (The Card) --- */
-.container {
-    max-width: 400px;
-    width: 90%;
-    background-color: #fff;
-    border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-    padding: 30px;
-    box-sizing: border-box;
+/* Left Panel - Top-aligned content */
+.left-panel {
+  flex: 1;
+  background: linear-gradient(120deg, #4caf50 0%, #2e7d32 100%);
+  color: white;
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Content at top */
+  align-items: flex-start;
 }
 
-/* --- 3. Site Branding (New Section for Name & Tagline) --- */
-.site-branding {
-    text-align: center; /* Center-align the text */
-    margin-bottom: 30px;
+.left-panel h1 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  font-family: "Noto Sans Tamil", sans-serif;
 }
 
-.site-name {
-    font-size: 2.2em;
-    color: orange; /* Using the submit button's green for branding */
-    margin: 0 0 5px 0;
-    font-weight: 700;
+.left-panel p {
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  max-width: 90%;
 }
 
-.tagline {
-    font-size: 0.95em;
-    color: #666;
-    margin: 0;
-    font-style: italic;
+.features {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 1rem;
+  border-radius: 10px;
+  margin-top: 1.5rem;
+  width: 90%;
 }
 
-
-/* --- 4. Hiding the Radio Inputs (Checkbox Hack) --- */
-#login_radio,
-#signup_radio {
-    display: none;
+.features h3 {
+  margin-bottom: 0.6rem;
+  font-size: 1.1rem;
 }
 
-/* --- 5. Header and Navigation Tabs (Now Labels) --- */
-.header {
-    display: flex;
-    justify-content: space-around;
-    border-bottom: 1px solid #ddd;
-    margin-bottom: 25px;
-    padding-bottom: 10px;
+.features ul {
+  padding-left: 1.2rem;
+  font-size: 0.95rem;
 }
 
-.header label {
-    cursor: pointer;
-    font-size: 1.6em;
-    font-weight: 600;
-    color: #999;
-    padding: 5px 15px;
-    margin: 0;
-    transition: color 0.3s, border-bottom 0.3s;
+.features li {
+  margin-bottom: 0.4rem;
 }
 
-/* Active tab style */
-#login_radio:checked ~ .header .button_1,
-#signup_radio:checked ~ .header .button_2 {
-    color: #007bff;
-    border-bottom: 3px solid #007bff;
+/* Right Panel - Form */
+.right-panel {
+  flex: 1;
+  background: white;
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 }
 
-/* --- 6. Form Visibility Control (The core hack) --- */
-
-.login,
-.signup {
-    display: none;
+.lang-toggle {
+  position: absolute;
+  top: 2rem;
+  right: 2.5rem;
+  background: #ffd700;
+  color: #333;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.9rem;
 }
 
-#login_radio:checked ~ .contents .login {
-    display: block;
+.form-container {
+  width: 100%;
+  max-width: 420px;
 }
 
-#signup_radio:checked ~ .contents .signup {
-    display: block;
+.form-container h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #333;
+  font-size: 1.8rem;
 }
 
-/* --- 7. Form and Input Styling --- */
-.contents {
-    padding-top: 10px;
+.input-group {
+  margin-bottom: 1.2rem;
 }
 
-.login form,
-.signup form {
-    display: flex;
+.input-group input,
+.input-group select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #ffd700; /* Prominent yellow */
+  color: #333;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background-color: #ffcc00;
+}
+
+.switch-form {
+  text-align: center;
+  margin-top: 1.5rem;
+  color: #666;
+}
+
+.switch-form a {
+  color: #4caf50;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+@media (max-width: 900px) {
+  body {
     flex-direction: column;
-    gap: 15px;
-}
-
-input[type="text"],
-input[type="email"],
-input[type="password"] {
+  }
+  .left-panel,
+  .right-panel {
     width: 100%;
-    padding: 14px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    box-sizing: border-box;
-    font-size: 1em;
-    transition: border-color 0.3s, box-shadow 0.3s;
-}
-
-input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="password"]:focus {
-    border-color: #007bff;
-    box-shadow: 0 0 8px rgba(0, 123, 255, 0.1);
-    outline: none;
-}
-
-input[type="submit"] {
-    background-color: orange;
-    color: white;
-    padding: 14px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 1.1em;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    transition: background-color 0.3s, transform 0.1s;
-    margin-top: 10px;
-}
-
-input[type="submit"]:hover {
-    background-color: orange;
-}
-
-input[type="submit"]:active {
-    transform: translateY(1px);
+    padding: 1.8rem;
+  }
+  .lang-toggle {
+    top: 1.2rem;
+    right: 1.8rem;
+  }
 }
