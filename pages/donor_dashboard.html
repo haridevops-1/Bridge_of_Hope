@@ -1,231 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Volunteer Dashboard — Bridge of Hope</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Donor Dashboard — Bridge of Hope</title>
+
+    <!-- Google font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- External CSS -->
     <link rel="stylesheet" href="../styles/donor_dashboard.css" />
   </head>
   <body>
     <div class="app-shell">
-      <!-- Sidebar -->
-      <aside class="sidebar" aria-label="Primary">
+      <!-- LEFT SIDEBAR -->
+      <aside class="sidebar" aria-label="Primary navigation">
         <div class="brand">
-          <div class="brand-logo" aria-hidden="true">
+          <div class="logo" aria-hidden="true">
             <svg
-              width="34"
-              height="34"
+              width="36"
+              height="36"
               viewBox="0 0 24 24"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <rect width="24" height="24" rx="6" fill="#E6F9EE" />
+              <rect width="24" height="24" rx="5" fill="#E8F9EE" />
               <path
                 d="M7 10.5C7 8.57 8.57 7 10.5 7C11.54 7 12.45 7.45 13 8.18C13.55 7.45 14.46 7 15.5 7C17.43 7 19 8.57 19 10.5C19 14.25 13 17.75 13 17.75C13 17.75 7 14.25 7 10.5Z"
-                fill="#1FA463"
+                fill="#18A46A"
               />
             </svg>
           </div>
-          <div class="brand-text">
-            <span class="brand-name">Bridge of Hope</span>
-          </div>
+          <div class="brand-name">Bridge of Hope</div>
         </div>
 
-        <nav class="nav">
+        <nav class="nav" aria-label="Main">
           <ul>
-            <li class="nav-item active">
-              <span class="icon">🏠</span><span class="label">Dashboard</span>
-            </li>
-            <li class="nav-item">
-              <span class="icon">📦</span
-              ><span class="label">Pickup Requests</span>
-            </li>
-            <li class="nav-item">
-              <span class="icon">✅</span
-              ><span class="label">Completed Deliveries</span>
-            </li>
-            <li class="nav-item">
-              <span class="icon">👤</span><span class="label">Profile</span>
-            </li>
-            <li class="nav-item">
-              <span class="icon">⚙️</span><span class="label">Settings</span>
-            </li>
-            <li class="nav-item">
-              <span class="icon">↪️</span><span class="label">Logout</span>
-            </li>
+            <li class="nav-item active">🏠 <span>Dashboard</span></li>
+            <li class="nav-item">📦 <span>Add Donation</span></li>
+            <li class="nav-item">📜 <span>Donation History</span></li>
+            <li class="nav-item">📍 <span>Track Donations</span></li>
+            <li class="nav-item">👤 <span>Profile</span></li>
+            <li class="nav-item">⚙️ <span>Settings</span></li>
+            <li class="nav-item">↪️ <span>Logout</span></li>
           </ul>
-          <button class="collapse-btn" aria-hidden="true">⟨ Collapse</button>
         </nav>
+
+        <div class="collapse">⟨ Collapse</div>
       </aside>
 
-      <!-- Main content -->
-      <header class="topbar">
-        <div class="topbar-inner">
-          <div class="topbar-left">
-            <h1 class="top-title">Volunteer Dashboard</h1>
-          </div>
-          <div class="topbar-right">
-            <button class="notif" aria-label="Notifications">🔔</button>
-            <div class="avatar">
-              <img
-                src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=64&q=60"
-                alt="User avatar"
-              />
+      <!-- MAIN -->
+      <div class="main-area">
+        <main class="content">
+          <!-- welcome hero -->
+          <section class="welcome-card card">
+            <div class="welcome-left">
+              <h1>Welcome, Generous Donor!</h1>
+              <p class="muted">
+                Here's an overview of your valuable contributions and impact.
+              </p>
             </div>
-          </div>
-        </div>
-      </header>
-
-      <main class="main-grid">
-        <!-- Left content -->
-        <section class="content">
-          <!-- Assigned Pickups -->
-          <section class="section">
-            <h2 class="section-title">
-              Assigned Pickups <span class="muted">(3)</span>
-            </h2>
-            <div class="cards-grid assigned-grid">
-              <article class="card pickup-card">
-                <h3 class="card-title">Fresh Farms Market</h3>
-                <p class="card-sub">Mixed seasonal fruits and vegetables</p>
-                <div class="meta">
-                  <div><strong>Quantity:</strong> 25 kg</div>
-                  <div class="time">⏰ Today, 2:00 PM - 3:00 PM</div>
-                  <div class="place">📍 123 Farm Road, Green Valley</div>
-                </div>
-                <span class="badge assigned">Assigned</span>
-              </article>
-
-              <article class="card pickup-card">
-                <h3 class="card-title">Community Garden</h3>
-                <p class="card-sub">Surplus organic herbs</p>
-                <div class="meta">
-                  <div><strong>Quantity:</strong> 5 bundles</div>
-                  <div class="time">⏰ Tomorrow, 10:00 AM - 11:00 AM</div>
-                  <div class="place">📍 Garden Park, Northside</div>
-                </div>
-                <span class="badge assigned">Assigned</span>
-              </article>
-
-              <!-- Small profile card inside assigned -->
-              <aside class="profile-card card small-profile">
-                <div class="profile-top">
-                  <img
-                    class="profile-photo"
-                    src="https://images.unsplash.com/photo-1545996124-1b9e1b9b8b9d?auto=format&fit=crop&w=128&q=60"
-                    alt="Aisha Khan"
-                  />
-                  <h4 class="profile-name">Aisha Khan</h4>
-                </div>
-                <div class="profile-stats">
-                  <div class="deliveries">
-                    <span class="truck">🚚</span><strong>145</strong>
-                    <div class="muted">Deliveries Completed</div>
-                  </div>
-                  <div class="rating">
-                    <div class="stars">★ ★ ★ ★ ☆</div>
-                    <div class="score">4.8</div>
-                  </div>
-                </div>
-              </aside>
-
-              <article class="card pickup-card">
-                <h3 class="card-title">Local Cafe</h3>
-                <p class="card-sub">Day-old sandwiches and salads</p>
-                <div class="meta">
-                  <div><strong>Quantity:</strong> Medium tray</div>
-                  <div class="time">⏰ Today, 1:00 PM - 1:30 PM</div>
-                  <div class="place">📍 101 Elm Street, Downtown</div>
-                </div>
-                <span class="badge assigned">Assigned</span>
-              </article>
+            <div class="welcome-right">
+              <button class="btn primary">➕ Add New Donation</button>
             </div>
           </section>
 
-          <!-- In Progress Deliveries -->
-          <section class="section">
-            <h2 class="section-title">
-              In Progress Deliveries <span class="muted">(2)</span>
-            </h2>
-            <div class="cards-grid inprogress-grid">
-              <article class="card small-card inroute">
-                <h3 class="card-title">Bakehouse Delights</h3>
-                <p class="card-sub">Assorted pastries and bread</p>
-                <div class="meta">
-                  <div><strong>Quantity:</strong> Large box</div>
-                  <div class="time">⏰ Today, 4:30 PM - 5:00 PM</div>
-                  <div class="place">📍 789 Bakery Lane, City Center</div>
-                </div>
-                <div class="card-actions">
-                  <span class="tag enroute">En Route</span>
-                  <button class="btn primary">Mark Delivery Complete</button>
-                </div>
-              </article>
+          <!-- stats cards -->
+          <section class="stats-row">
+            <div class="stat card">
+              <div class="stat-title">Total Donations</div>
+              <div class="stat-value">25</div>
+              <div class="stat-sub muted">across 5 months</div>
+            </div>
 
-              <article class="card small-card inroute">
-                <h3 class="card-title">Healthy Harvest Deli</h3>
-                <p class="card-sub">Prepared meals, vegetarian options</p>
-                <div class="meta">
-                  <div><strong>Quantity:</strong> 15 meal containers</div>
-                  <div class="time">⏰ Today, 6:00 PM - 6:45 PM</div>
-                  <div class="place">📍 505 Oak Avenue, Midtown</div>
-                </div>
-                <div class="card-actions">
-                  <span class="tag enroute">En Route</span>
-                  <button class="btn primary">Mark Delivery Complete</button>
-                </div>
-              </article>
+            <div class="stat card">
+              <div class="stat-title">Meals Impacted</div>
+              <div class="stat-value">1,500+</div>
+              <div class="stat-sub muted">fed families</div>
+            </div>
+
+            <div class="stat card">
+              <div class="stat-title">NGOs Supported</div>
+              <div class="stat-value">10</div>
+              <div class="stat-sub muted">in your area</div>
             </div>
           </section>
 
-          <!-- Completed Deliveries -->
-          <section class="section">
-            <h2 class="section-title">
-              Completed Deliveries <span class="muted">(1)</span>
-            </h2>
-            <div class="cards-grid completed-grid">
-              <article class="card completed-card">
-                <h3 class="card-title">MegaMart Superstore</h3>
-                <p class="card-sub">Canned goods and dry pasta</p>
-                <div class="meta">
-                  <div><strong>Quantity:</strong> 10 cartons</div>
-                  <div class="time">⏰ Yesterday, 9:00 AM - 10:00 AM</div>
-                  <div class="place">📍 456 Retail Blvd, Westside</div>
-                </div>
-                <span class="badge completed">Completed</span>
-              </article>
-            </div>
+          <!-- action buttons -->
+          <section class="actions">
+            <a href = "../pages/donor_reg.html"><button class="btn primary">➕ Add New Donation</button></a>
+            <a href ="../pages/donation_tracking.html"><button class="btn ghost">📜 View Donation History</button></a>
+            <button class="btn ghost">📍 Track Active Donations</button>
           </section>
-        </section>
 
-        <!-- Right sidebar -->
-        <aside class="sidebar-right">
-          <div class="card large-profile">
-            <div class="profile-top big">
-              <img
-                class="profile-photo"
-                src="https://images.unsplash.com/photo-1545996124-1b9e1b9b8b9d?auto=format&fit=crop&w=160&q=60"
-                alt="Aisha Khan"
-              />
-              <h3 class="profile-name big">Aisha Khan</h3>
-            </div>
-            <div class="profile-stats">
-              <div class="deliveries">
-                <span class="truck">🚚</span><strong>145</strong>
-                <div class="muted">Deliveries Completed</div>
+          <!-- status columns -->
+          <section class="status-grid">
+            <div class="status-column card">
+              <div class="column-header">
+                <div class="column-title">🕒 Pending</div>
+                <div class="badge">2</div>
               </div>
-              <div class="rating">
-                <div class="stars">★ ★ ★ ★ ☆</div>
-                <div class="score">4.8</div>
-              </div>
-            </div>
-          </div>
-        </aside>
-      </main>
 
-      <footer class="footer">
-        <div>© 2025 Bridge of Hope. All rights reserved.</div>
-      </footer>
+              <ul class="item-list">
+                <li class="item">
+                  <div class="item-title">Mixed Vegetables</div>
+                  <div class="item-date">2023-10-26</div>
+                </li>
+                <li class="item">
+                  <div class="item-title">Dairy Products</div>
+                  <div class="item-date">2023-10-26</div>
+                </li>
+              </ul>
+            </div>
+
+            <div class="status-column card">
+              <div class="column-header">
+                <div class="column-title">🚚 Collected</div>
+                <div class="badge alt">2</div>
+              </div>
+
+              <ul class="item-list">
+                <li class="item">
+                  <div class="item-title">Canned Goods</div>
+                  <div class="item-date">2023-10-25</div>
+                </li>
+                <li class="item">
+                  <div class="item-title">Baked Goods</div>
+                  <div class="item-date">2023-10-25</div>
+                </li>
+              </ul>
+            </div>
+
+            <div class="status-column card">
+              <div class="column-header">
+                <div class="column-title">✔️ Delivered</div>
+                <div class="badge">2</div>
+              </div>
+
+              <ul class="item-list">
+                <li class="item">
+                  <div class="item-title">Fresh Fruits</div>
+                  <div class="item-date">2023-10-24</div>
+                </li>
+                <li class="item">
+                  <div class="item-title">Packaged Meals</div>
+                  <div class="item-date">2023-10-24</div>
+                </li>
+              </ul>
+            </div>
+          </section>
+
+          <!-- page footer -->
+          <footer class="page-footer">
+            © 2025 Bridge of Hope. All rights reserved.
+          </footer>
+        </main>
+      </div>
     </div>
   </body>
 </html>

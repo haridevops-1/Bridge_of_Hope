@@ -5,41 +5,23 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Receiver (NGO) Dashboard — Bridge of Hope</title>
 
-    <!-- Google font -->
+    <!-- Stylesheet (keep one main CSS file) -->
     <link href="../styles/receiver_dashboard.css" rel="stylesheet" />
-
-    <!-- External CSS -->
-    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <div class="app-shell">
       <!-- LEFT NAV -->
       <aside class="sidebar" aria-label="Primary navigation">
         <div class="brand">
-          <div class="brand-logo" aria-hidden="true">
-            <!-- simple icon -->
-            <svg
-              width="36"
-              height="36"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <rect width="24" height="24" rx="5" fill="#E8F9EE" />
-              <path
-                d="M7 10.5C7 8.57 8.57 7 10.5 7C11.54 7 12.45 7.45 13 8.18C13.55 7.45 14.46 7 15.5 7C17.43 7 19 8.57 19 10.5C19 14.25 13 17.75 13 17.75C13 17.75 7 14.25 7 10.5Z"
-                fill="#18A46A"
-              />
-            </svg>
-          </div>
+          <div class="brand-logo" aria-hidden="true"></div>
           <div class="brand-text">Bridge of Hope</div>
         </div>
 
         <nav class="nav" aria-label="Main">
           <ul>
-            <li class="nav-item">
+           <a href = "../pages/receiver_dashboard.html"> <li class="nav-item">
               <span class="nav-ico">🏠</span><span>Dashboard</span>
-            </li>
+            </li></a>
             <li class="nav-item active">
               <span class="nav-ico">🍽️</span><span>Available Food</span>
             </li>
@@ -69,20 +51,6 @@
 
       <!-- MAIN CONTENT -->
       <div class="main">
-        <!-- topbar -->
-        <header class="topbar">
-          <div class="top-left"></div>
-          <div class="top-right">
-            <button class="icon-btn" aria-label="notifications">🔔</button>
-            <div class="avatar">
-              <img
-                src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=64&q=60"
-                alt="user"
-              />
-            </div>
-          </div>
-        </header>
-
         <!-- content wrapper -->
         <div class="container">
           <h1 class="page-title">Receiver (NGO) Dashboard</h1>
@@ -120,21 +88,18 @@
           <div class="divider"></div>
 
           <!-- card grid -->
-          <section class="card-grid">
+          <section class="card-grid" aria-label="Available food items">
             <!-- card 1 -->
             <article class="food-card">
               <div class="card-media">
-                <img
-                  src="../assets/Idli_image.jpg"
-                  alt="fresh vegetables"
-                />
+                <img src="../assets/Idli_image.jpg" alt="Idli" />
               </div>
               <div class="card-body">
                 <div class="donor">
                   <img
                     class="donor-avatar"
                     src="../assets/meals_image.png"
-                    alt="harvest market"
+                    alt="Harvest Market"
                   />
                   <div class="donor-info">
                     <div class="donor-name">Harvest Market</div>
@@ -144,12 +109,13 @@
 
                 <h3 class="food-title">Idli</h3>
                 <p class="food-desc">
-                  Idli - 100 pieces, Freshly made this morning, Excellent quality
+                  Idli - 100 pieces, Freshly made this morning, Excellent
+                  quality
                 </p>
 
                 <ul class="meta-list">
                   <li>⏱ Pickup: Today, 2:00 PM - 4:00 PM</li>
-                  <li>📍 Address: 41, ambattur, chennai</li>
+                  <li>📍 Address: 41, Ambattur, Chennai</li>
                 </ul>
 
                 <div class="card-actions">
@@ -163,17 +129,14 @@
             <!-- card 2 -->
             <article class="food-card">
               <div class="card-media">
-                <img
-                  src="../assets/dosa_image.jpg"
-                  alt="pastries"
-                />
+                <img src="../assets/dosa_image.jpg" alt="Dosa" />
               </div>
               <div class="card-body">
                 <div class="donor">
                   <img
                     class="donor-avatar"
                     src="../assets/vada_image.jpeg"
-                    alt="downtown bakery"
+                    alt="Downtown Bakery"
                   />
                   <div class="donor-info">
                     <div class="donor-name">Downtown Bakery</div>
@@ -181,9 +144,10 @@
                   </div>
                 </div>
 
-                <h3 class="food-title"vada></h3>
+                <h3 class="food-title">Vada</h3>
                 <p class="food-desc">
-                  vada - 150 pieces, Freshly made this morning, Excellent quality
+                  Vada - 150 pieces, Freshly made this morning, Excellent
+                  quality
                 </p>
 
                 <ul class="meta-list">
@@ -202,17 +166,14 @@
             <!-- card 3 -->
             <article class="food-card">
               <div class="card-media">
-                <img
-                  src="../assets/meals_image.png"
-                  alt="salmon"
-                />
+                <img src="../assets/meals_image.png" alt="Meals" />
               </div>
               <div class="card-body">
                 <div class="donor">
                   <img
                     class="donor-avatar"
                     src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?auto=format&fit=crop&w=64&q=60"
-                    alt="ocean seafood"
+                    alt="Ocean Seafood Restaurant"
                   />
                   <div class="donor-info">
                     <div class="donor-name">Ocean Seafood Restaurant</div>
@@ -220,14 +181,15 @@
                   </div>
                 </div>
 
-                <h3 class="food-title">Meals/h3>
+                <h3 class="food-title">Meals</h3>
                 <p class="food-desc">
-                  Meals - 30 portions, High-grade, prepared for immediate consumption
+                  Meals - 30 portions, High-grade, prepared for immediate
+                  consumption
                 </p>
 
                 <ul class="meta-list">
                   <li>⏱ Pickup: Tomorrow, 10:00 AM - 11:00 AM</li>
-                  <li>📍 Address: 78, thiruvanmiyur, chennai</li>
+                  <li>📍 Address: 78, Thiruvanmiyur, Chennai</li>
                 </ul>
 
                 <div class="card-actions">
@@ -243,7 +205,7 @@
               <div class="card-media">
                 <img
                   src="../assets/vada_image.jpeg"
-                  alt="event leftovers"
+                  alt="Vada (event leftovers)"
                 />
               </div>
               <div class="card-body">
@@ -251,7 +213,7 @@
                   <img
                     class="donor-avatar"
                     src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?auto=format&fit=crop&w=64&q=60"
-                    alt="global cuisine"
+                    alt="Global Cuisine Catering"
                   />
                   <div class="donor-info">
                     <div class="donor-name">Global Cuisine Catering</div>

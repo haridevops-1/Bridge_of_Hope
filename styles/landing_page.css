@@ -366,3 +366,38 @@ button:focus {
   outline-offset: 3px;
   border-radius: 8px;
 }
+.hero-ctas a {
+  text-decoration: none;      /* underline remove */
+  color: inherit;             /* link color parent color follow */
+}
+
+/* If you want custom text color for outline buttons */
+.btn-outline {
+  color: #18A46A;             /* green text */
+  border: 2px solid #18A46A;  /* outline color */
+}
+
+/* Primary button (filled) */
+.btn-primary {
+  background: #18A46A;
+  color: #ffffff;
+  border: 2px solid #18A46A;
+}
+
+/* Size */
+.btn.large {
+  padding: 12px 22px;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+/* Hover effect (clean and modern) */
+.btn:hover {
+  opacity: 0.9;
+  transition: 0.2s ease;
+}

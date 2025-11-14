@@ -3,22 +3,19 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Volunteer Dashboard — Bridge of Hope</title>
-    <link rel="stylesheet" href="../styles/volunteer_dashboard.css">
-
-
-
+    <title>Volunteer Dashboard — Bridge of Hope (Static)</title>
+    <link href="../styles/volunteer_dashboard.css" rel="stylesheet" />
   </head>
   <body>
     <div class="app-shell">
-      <!-- Sidebar -->
-      <aside class="sidebar" aria-label="Primary">
+      <!-- LEFT SIDEBAR (static) -->
+      <aside class="sidebar" aria-label="Primary navigation">
         <div class="brand">
           <div class="brand-logo" aria-hidden="true">
-            <!-- simple heart/bridge svg -->
+            <!-- small svg -->
             <svg
-              width="34"
-              height="34"
+              width="36"
+              height="36"
               viewBox="0 0 24 24"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -30,62 +27,56 @@
               />
             </svg>
           </div>
-          <div class="brand-text">
-            <span class="brand-name">Bridge of Hope</span>
-          </div>
+          <div class="brand-text">Bridge of Hope</div>
         </div>
 
-        <nav class="nav">
+        <nav class="nav" aria-label="Main menu">
           <ul>
             <li class="nav-item active">
-              <span class="icon">🏠</span>
-              <span class="label">Dashboard</span>
+              <span>🏠</span><span style="margin-left: 8px">Dashboard</span>
             </li>
             <li class="nav-item">
-              <span class="icon">📦</span>
-              <span class="label">Pickup Requests</span>
+              <span>📦</span
+              ><span style="margin-left: 8px">Pickup Requests</span>
             </li>
             <li class="nav-item">
-              <span class="icon">✅</span>
-              <span class="label">Completed Deliveries</span>
+              <span>✅</span
+              ><span style="margin-left: 8px">Completed Deliveries</span>
             </li>
             <li class="nav-item">
-              <span class="icon">👤</span>
-              <span class="label">Profile</span>
+              <span>👤</span><span style="margin-left: 8px">Profile</span>
             </li>
             <li class="nav-item">
-              <span class="icon">⚙️</span>
-              <span class="label">Settings</span>
+              <span>⚙️</span><span style="margin-left: 8px">Settings</span>
             </li>
             <li class="nav-item">
-              <span class="icon">↪️</span>
-              <span class="label">Logout</span>
+              <span>↪️</span><span style="margin-left: 8px">Logout</span>
             </li>
           </ul>
-          <button class="collapse-btn" aria-hidden="true">⟨ Collapse</button>
         </nav>
+
+        <div class="collapse">⟨ Collapse</div>
       </aside>
 
-      <!-- Main content area -->
-      <header class="topbar">
-        <div class="topbar-inner">
-          <div class="topbar-left">
-            <h1 class="top-title">Volunteer Dashboard</h1>
-          </div>
-          <div class="topbar-right">
-            <button class="notif" aria-label="Notifications">🔔</button>
-            <div class="avatar">
-              <img
-                src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=64&q=60"
-                alt="User avatar"
-              />
-            </div>
+      <!-- Topbar -->
+      <header class="topbar" role="banner">
+        <div class="topbar-left">
+          <h1 class="top-title">Volunteer Dashboard</h1>
+        </div>
+        <div class="topbar-right">
+          <button class="notif" aria-hidden="true">🔔</button>
+          <div class="avatar">
+            <img
+              src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=64&q=60"
+              alt="User avatar"
+            />
           </div>
         </div>
       </header>
 
+      <!-- MAIN GRID -->
       <main class="main-grid">
-        <!-- left content column -->
+        <!-- Left content -->
         <section class="content">
           <!-- Assigned Pickups -->
           <section class="section">
@@ -93,7 +84,7 @@
               Assigned Pickups <span class="muted">(3)</span>
             </h2>
 
-            <div class="cards-grid assigned-grid">
+            <div class="cards-grid assigned-grid" aria-label="Assigned pickups">
               <!-- Card 1 -->
               <article class="card pickup-card">
                 <h3 class="card-title">Fresh Farms Market</h3>
@@ -122,24 +113,25 @@
                 <span class="badge assigned">Assigned</span>
               </article>
 
-              <!-- Profile card placed inline to match visual -->
-              <aside class="profile-card card small-profile">
+              <!-- Small profile card (visual) -->
+              <aside class="card small-profile" aria-label="Volunteer profile">
                 <div class="profile-top">
                   <img
                     class="profile-photo"
                     src="https://images.unsplash.com/photo-1545996124-1b9e1b9b8b9d?auto=format&fit=crop&w=128&q=60"
                     alt="Aisha Khan"
                   />
-                  <h4 class="profile-name">Aisha Khan</h4>
+                  <div class="profile-name">Aisha Khan</div>
                 </div>
                 <div class="profile-stats">
-                  <div class="deliveries">
-                    <span class="truck">🚚</span><strong>145</strong>
-                    <div class="muted">Deliveries Completed</div>
+                  <div>
+                    <span style="font-size: 18px">🚚</span>
+                    <div style="font-weight: 800">145</div>
+                    <div class="muted" style="font-size: 12px">Deliveries</div>
                   </div>
-                  <div class="rating">
-                    <div class="stars">★ ★ ★ ★ ☆</div>
-                    <div class="score">4.8</div>
+                  <div>
+                    <div style="font-weight: 800">4.8</div>
+                    <div class="muted" style="font-size: 12px">Rating</div>
                   </div>
                 </div>
               </aside>
@@ -160,13 +152,16 @@
             </div>
           </section>
 
-          <!-- In Progress Deliveries -->
+          <!-- In Progress -->
           <section class="section">
             <h2 class="section-title">
               In Progress Deliveries <span class="muted">(2)</span>
             </h2>
 
-            <div class="cards-grid inprogress-grid">
+            <div
+              class="cards-grid inprogress-grid"
+              aria-label="In progress deliveries"
+            >
               <article class="card small-card inroute">
                 <h3 class="card-title">Bakehouse Delights</h3>
                 <p class="card-sub">Assorted pastries and bread</p>
@@ -201,13 +196,16 @@
             </div>
           </section>
 
-          <!-- Completed Deliveries -->
+          <!-- Completed -->
           <section class="section">
             <h2 class="section-title">
               Completed Deliveries <span class="muted">(1)</span>
             </h2>
 
-            <div class="cards-grid completed-grid">
+            <div
+              class="cards-grid completed-grid"
+              aria-label="Completed deliveries"
+            >
               <article class="card completed-card">
                 <h3 class="card-title">MegaMart Superstore</h3>
                 <p class="card-sub">Canned goods and dry pasta</p>
@@ -224,25 +222,34 @@
           </section>
         </section>
 
-        <!-- right column (aside) — on large screens this will float right, but we already used profile small one in assigned area) -->
+        <!-- Right column -->
         <aside class="sidebar-right">
-          <div class="card large-profile">
+          <div class="large-profile card">
             <div class="profile-top big">
               <img
                 class="profile-photo"
                 src="https://images.unsplash.com/photo-1545996124-1b9e1b9b8b9d?auto=format&fit=crop&w=160&q=60"
                 alt="Aisha Khan"
               />
-              <h3 class="profile-name big">Aisha Khan</h3>
+              <div class="profile-name big">Aisha Khan</div>
             </div>
-            <div class="profile-stats">
-              <div class="deliveries">
-                <span class="truck">🚚</span><strong>145</strong>
-                <div class="muted">Deliveries Completed</div>
+
+            <div
+              class="profile-stats"
+              style="
+                display: flex;
+                gap: 20px;
+                justify-content: center;
+                margin-top: 12px;
+              "
+            >
+              <div style="text-align: center">
+                <div style="font-weight: 900">145</div>
+                <div class="muted" style="font-size: 12px">Deliveries</div>
               </div>
-              <div class="rating">
-                <div class="stars">★ ★ ★ ★ ☆</div>
-                <div class="score">4.8</div>
+              <div style="text-align: center">
+                <div style="font-weight: 900">4.8</div>
+                <div class="muted" style="font-size: 12px">Rating</div>
               </div>
             </div>
           </div>
@@ -250,7 +257,7 @@
       </main>
 
       <footer class="footer">
-        <div>© 2025 Bridge of Hope. All rights reserved.</div>
+        © 2025 Bridge of Hope. All rights reserved.
       </footer>
     </div>
   </body>

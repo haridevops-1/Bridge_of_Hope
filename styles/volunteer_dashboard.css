@@ -1,58 +1,58 @@
-/* styles.css — detailed styling to match the high-fidelity dashboard
-   Uses CSS variables, grid/flex and responsive breakpoints.
-*/
-
 :root {
-  --bg: #f7f7f7;
-  --card-bg: #ffffff;
-  --muted: #8b98a5;
-  --accent: #1fa463; /* green accent */
-  --accent-2: #e6f9ee;
-  --border: #e9ecef;
-  --text: #111827;
-  --soft-shadow: 0 6px 20px rgba(16, 24, 40, 0.06);
-  --rounded: 12px;
-  --radius-sm: 10px;
-  --max-width: 1180px;
+  --bg: #f7f9fa;
+  --card: #ffffff;
+  --accent: #1fa463;
+  --muted: #73808a;
+  --border: #e9eef2;
+  --shadow: 0 10px 30px rgba(16, 24, 40, 0.06);
+  --round: 12px;
+  --maxw: 1180px;
+  --gutter: 24px;
 }
-
-/* Reset-ish */
 * {
   box-sizing: border-box;
 }
-html,
 body {
-  height: 100%;
   margin: 0;
-  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+  color: #101820;
+  background: var(--bg);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: var(--text);
-  background: #fff;
 }
 
-/* App shell */
+/* ---------- App shell (centered + consistent padding) ---------- */
 .app-shell {
+  width: 100%;
+  max-width: var(--maxw);
+  margin: 18px auto; /* center the whole app */
+  padding: 0 18px; /* consistent outer padding */
   display: grid;
   grid-template-columns: 260px 1fr;
+  gap: var(--gutter);
   min-height: 100vh;
-  gap: 0;
-  background: var(--bg);
+  align-items: start;
 }
 
-/* Sidebar (left) */
+/* ---------- Sidebar ---------- */
 .sidebar {
-  background: #fff;
-  border-right: 1px solid var(--border);
-  padding: 22px 18px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 18px;
+  box-shadow: var(--shadow);
+  /* avoid forcing a fixed full viewport height — let content determine height,
+     but keep sidebar visible on tall screens with sticky positioning */
   position: sticky;
-  top: 0;
-  height: 100vh;
+  top: 18px;
+  max-height: calc(100vh - 36px);
+  overflow: auto;
 }
+
+/* Brand */
 .brand {
   display: flex;
   gap: 12px;
@@ -61,178 +61,169 @@ body {
 .brand-logo {
   width: 44px;
   height: 44px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  background: #eaf8ef;
 }
-.brand-name {
-  font-weight: 700;
+.brand-text {
+  font-weight: 800;
   color: var(--accent);
-  font-size: 14px;
 }
-.nav {
-  margin-top: 8px;
+
+/* Navigation */
+.nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
   display: flex;
   flex-direction: column;
   gap: 8px;
-  flex: 1;
-}
-.nav ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
 }
 .nav-item {
   display: flex;
-  gap: 12px;
+  gap: 10px;
   align-items: center;
   padding: 10px;
   border-radius: 10px;
   color: #374151;
-  cursor: pointer;
-  font-weight: 600;
-  font-size: 14px;
-}
-.nav-item .icon {
-  width: 26px;
-  text-align: center;
-  opacity: 0.9;
+  font-weight: 700;
+  cursor: default;
 }
 .nav-item.active {
   background: rgba(31, 164, 99, 0.08);
   color: var(--accent);
-  box-shadow: none;
 }
-.collapse-btn {
+.collapse {
   margin-top: auto;
-  border: 0;
-  background: none;
-  padding: 12px 6px;
   color: var(--muted);
-  cursor: pointer;
-  text-align: left;
+  font-weight: 600;
+  padding-top: 8px;
 }
 
-/* Topbar */
+/* ---------- Topbar (aligns with app-shell center) ---------- */
+/* Topbar spans the full width of app-shell (not entire viewport) */
 .topbar {
-  position: sticky;
-  top: 0;
-  z-index: 8;
-  background: transparent;
-  padding: 18px 22px;
-  grid-column: 1 / -1;
-}
-.topbar-inner {
+  grid-column: 1 / -1; /* span both columns */
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: var(--max-width);
-  margin: 0 auto;
+  gap: 12px;
+  padding: 12px 0; /* vertical spacing only (horizontal alignment inherited from app-shell) */
+  background: transparent;
+  margin-bottom: 6px;
 }
-.top-title {
-  font-size: 28px;
+.topbar .top-title {
+  font-size: 22px;
   font-weight: 800;
   margin: 0;
-  color: #161823;
 }
 .topbar-right {
   display: flex;
-  gap: 14px;
+  gap: 12px;
   align-items: center;
 }
 .notif {
   background: transparent;
   border: 0;
   font-size: 20px;
-  cursor: pointer;
+  cursor: default;
 }
 .avatar img {
-  width: 38px;
-  height: 38px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   object-fit: cover;
+  border: 3px solid #fff;
+  box-shadow: 0 4px 14px rgba(16, 24, 40, 0.08);
 }
 
-/* Main content area grid */
+/* ---------- Main grid (content + right aside) ---------- */
+/* We keep this grid inside the centered .app-shell so columns align with sidebar + topbar */
 .main-grid {
   display: grid;
   grid-template-columns: 1fr 320px;
-  gap: 28px;
-  max-width: var(--max-width);
-  margin: 8px auto 32px;
-  padding: 0 18px;
+  gap: 24px;
+  width: 100%;
   align-items: start;
+  /* make sure main-grid aligns under the topbar properly */
+  margin-top: 0;
 }
 
-/* Left content column */
+/* ---------- Content blocks ---------- */
 .content {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
 }
-
 .section {
-  margin-bottom: 28px;
   background: transparent;
 }
 .section-title {
-  font-size: 20px;
-  margin: 6px 0 14px;
-  font-weight: 700;
+  font-size: 18px;
+  margin: 0 0 8px;
+  font-weight: 800;
 }
 .muted {
   color: var(--muted);
-  font-weight: 500;
+  font-weight: 600;
   margin-left: 8px;
-  font-size: 14px;
+  font-size: 13px;
 }
 
-/* Cards grid for assigned pickups */
+/* ---------- Cards grid & cards ---------- */
 .cards-grid {
   display: grid;
-  gap: 18px;
-  align-items: start;
+  gap: 16px;
 }
-
-/* For assigned pickups we want three columns but one of those is profile card */
 .assigned-grid {
   grid-template-columns: repeat(3, 1fr);
 }
-
-/* Small/medium card */
-.card {
-  background: var(--card-bg);
-  border-radius: var(--rounded);
-  padding: 18px;
-  box-shadow: var(--soft-shadow);
-  border: 1px solid var(--border);
+.inprogress-grid,
+.completed-grid {
+  grid-template-columns: repeat(2, 1fr);
 }
 
-/* Pickup card specifics */
-.pickup-card .card-title {
-  margin: 0 0 6px;
-  font-size: 16px;
-  font-weight: 700;
+/* Card base */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--round);
+  padding: 16px;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.card-title {
+  margin: 0;
+  font-weight: 800;
+  font-size: 15px;
 }
 .card-sub {
-  margin: 0 0 12px;
+  margin: 0;
   color: var(--muted);
   font-size: 13px;
 }
 .meta {
-  font-size: 13px;
-  color: #374151;
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  margin-bottom: 12px;
+  gap: 6px;
+  font-size: 13px;
+  color: #314048;
 }
+
+/* Badges */
 .badge {
   display: inline-block;
-  padding: 8px 10px;
-  border-radius: 16px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-weight: 800;
   font-size: 13px;
-  font-weight: 700;
 }
 .badge.assigned {
-  background: #f0f6ff;
+  background: #eef8ff;
   color: #2563eb;
   border: 1px solid rgba(37, 99, 235, 0.06);
 }
@@ -241,190 +232,140 @@ body {
   color: var(--accent);
 }
 
-/* Profile small card that appears in assigned cards area */
+/* small profile card */
 .small-profile {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  text-align: center;
-  padding: 18px;
-}
-.small-profile .profile-top {
-  display: flex;
-  gap: 12px;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
+  text-align: center;
+  padding: 14px;
 }
 .profile-photo {
   width: 72px;
   height: 72px;
   border-radius: 50%;
   object-fit: cover;
-  border: 4px solid var(--accent-2);
+  border: 4px solid #eaf8ef;
 }
 .profile-name {
-  margin: 8px 0 0;
-  font-weight: 700;
+  margin-top: 8px;
+  font-weight: 800;
 }
 .profile-stats {
-  margin-top: 12px;
   display: flex;
-  gap: 12px;
-  justify-content: space-around;
+  gap: 14px;
+  margin-top: 12px;
   align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  font-weight: 700;
 }
 
-/* In-progress small cards */
-.small-card .card-actions {
+/* Card actions and buttons */
+.card-actions {
   display: flex;
-  gap: 10px;
+  gap: 8px;
   align-items: center;
-  margin-top: 12px;
-  justify-content: flex-start;
+  margin-top: 8px;
 }
 .tag.enroute {
   background: #fff7ed;
   color: #b45309;
-  padding: 6px 8px;
+  padding: 6px 10px;
   border-radius: 10px;
-  font-weight: 700;
-  font-size: 13px;
+  font-weight: 800;
 }
 .btn {
   border: 0;
   padding: 10px 12px;
   border-radius: 999px;
-  cursor: pointer;
-  font-weight: 700;
+  cursor: default;
+  font-weight: 800;
 }
 .btn.primary {
   background: #10b981;
-  color: white;
-  box-shadow: 0 6px 10px rgba(16, 185, 129, 0.12);
+  color: #fff;
+  box-shadow: 0 6px 12px rgba(16, 185, 129, 0.12);
 }
 
-/* Completed card */
-.completed-card .badge.completed {
-  display: inline-block;
-  margin-top: 12px;
-}
-
-/* Right sidebar large profile */
-.sidebar-right {
-  position: relative;
-  top: 0;
-  padding-top: 4px;
-}
-.large-profile {
-  padding: 22px;
-  text-align: center;
+/* Right sidebar profile card */
+.sidebar-right .large-profile {
+  background: var(--card);
+  border: 1px solid var(--border);
   border-radius: 14px;
+  padding: 18px;
+  box-shadow: var(--shadow);
 }
 .profile-top.big {
   display: flex;
-  gap: 12px;
-  align-items: center;
   flex-direction: column;
+  align-items: center;
+  gap: 10px;
 }
 .profile-name.big {
-  margin: 10px 0 0;
+  margin: 0;
+  font-weight: 900;
   font-size: 20px;
-  font-weight: 800;
 }
 
 /* Footer */
 .footer {
   grid-column: 1 / -1;
-  border-top: 1px solid var(--border);
-  padding: 16px 0;
-  background: #fafafa;
   text-align: center;
   color: var(--muted);
+  padding: 18px 0;
   font-size: 13px;
 }
 
-/* Layout adjustments for the multiple grids below each other */
-.inprogress-grid,
-.completed-grid {
-  grid-template-columns: repeat(2, 1fr);
-}
-
-/* Responsive breakpoints */
+/* ---------- Responsive rules (kept and improved) ---------- */
 @media (max-width: 1100px) {
+  .assigned-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
   .main-grid {
     grid-template-columns: 1fr 300px;
-    gap: 22px;
+    gap: 20px;
   }
-  .assigned-grid {
-    grid-template-columns: 1fr 1fr;
+  .app-shell {
+    padding: 0 14px;
   }
 }
-
 @media (max-width: 880px) {
-  /* collapse the left sidebar to top area — keep simple visual: hide it */
+  /* single-column mobile layout */
   .app-shell {
     grid-template-columns: 1fr;
+    padding: 0 12px;
   }
   .sidebar {
     display: none;
-  }
+  } /* hide left nav on mobile */
   .topbar {
-    padding: 14px;
-  }
-  .top-title {
-    font-size: 22px;
+    grid-column: 1 / -1;
   }
   .main-grid {
     grid-template-columns: 1fr;
-    padding: 0 14px;
-    margin-bottom: 22px;
   }
-  .assigned-grid {
-    grid-template-columns: 1fr;
-  }
-  .inprogress-grid {
-    grid-template-columns: 1fr;
-  }
+  .assigned-grid,
+  .inprogress-grid,
   .completed-grid {
     grid-template-columns: 1fr;
   }
   .sidebar-right {
     order: 3;
   }
-  .profile-card.small-profile {
-    display: flex;
+  .small-profile {
     order: 2;
   }
 }
 
-/* Small tweaks */
-.card-title {
-  font-size: 15px;
+/* small polish */
+a {
+  color: inherit;
 }
-.card-sub {
-  color: var(--muted);
-}
-.time,
-.place {
-  font-size: 13px;
-  color: #425058;
-}
-
-/* Accessibility: focus states */
-.nav-item:focus,
-.btn:focus,
-.collapse-btn:focus {
-  outline: 3px solid rgba(31, 164, 99, 0.15);
-  outline-offset: 2px;
-}
-
-/* Utility */
-.flex {
-  display: flex;
-}
-.center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
 }

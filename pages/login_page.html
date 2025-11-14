@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Login — Bridge of Hope</title>
+    <link rel="stylesheet" href="../styles/login_page.css" />
+  </head>
+  <body>
+    <div class="page">
+      <!-- Header -->
+      <header class="site-header">
+        <div class="header-inner">
+          <div class="brand">
+            <div class="logo" aria-hidden="true">
+              <svg
+                width="36"
+                height="36"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect width="24" height="24" rx="5" fill="#E8F9EE" />
+                <path
+                  d="M7 10.5C7 8.57 8.57 7 10.5 7C11.54 7 12.45 7.45 13 8.18C13.55 7.45 14.46 7 15.5 7C17.43 7 19 8.57 19 10.5C19 14.25 13 17.75 13 17.75C13 17.75 7 14.25 7 10.5Z"
+                  fill="#18A46A"
+                />
+              </svg>
+            </div>
+            <div class="brand-name">Bridge of Hope</div>
+          </div>
+
+          <nav class="main-nav" aria-label="Main navigation">
+            <a href="./landing_page.html" class="nav-link">Home</a>
+            <a href="./about_us.html" class="nav-link">About</a>
+            <a href="./contact _us.html" class="nav-link">Contact</a>
+          </nav>
+
+          <div class="auth">
+            <a href="../pages/landing_page.html" class="btn btn-ghost">Login</a>
+            <a href="../pages/sign_up.html" class="btn btn-primary">Sign Up</a>
+          </div>
+        </div>
+      </header>
+
+      <!-- Main centered area -->
+      <main class="center-wrap">
+        <article class="login-card" aria-labelledby="login-title">
+          <div class="card-top">
+            <h1 id="login-title" class="title">Welcome back</h1>
+            <p class="subtitle">
+              Log in to continue connecting donors, volunteers and NGOs.
+            </p>
+          </div>
+
+          <!-- Login form -->
+          <form class="login-form" action="#" method="post" novalidate>
+            <label class="field">
+              <span class="label">Email</span>
+              <input
+                type="email"
+                name="email"
+                placeholder="hari@example.com"
+                autocomplete="email"
+                required
+              />
+            </label>
+
+            <label class="field">
+              <span class="label">Password</span>
+              <input
+                type="password"
+                name="password"
+                placeholder="••••••••"
+                autocomplete="current-password"
+                required
+              />
+            </label>
+
+            <div class="field small-row">
+              <label class="checkbox">
+                <input type="checkbox" name="remember" />
+                <span>Remember me</span>
+              </label>
+
+              <a class="link small-link" href="#">Forgot password?</a>
+            </div>
+
+            <div class="form-actions">
+              <a href="../pages/landing_page.html"
+                ><button type="submit" class="btn-primary">Login</button></a
+              >
+            </div>
+
+            <p class="foot-note">
+              Don’t have an account?
+              <a href="../pages/sign_up.html" class="link">Sign Up</a>
+            </p>
+          </form>
+        </article>
+      </main>
+
+      <footer class="page-footer">
+        © 2025 Bridge of Hope. All rights reserved.
+      </footer>
+    </div>
+  </body>
+</html>

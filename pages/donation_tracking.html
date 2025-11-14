@@ -9,29 +9,12 @@
     <link href="../styles/donation_tracking.css" rel="stylesheet" />
 
     <!-- External CSS -->
-    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <div class="app">
       <!-- LEFT NAV -->
       <aside class="left-nav" aria-label="Primary navigation">
         <div class="brand">
-          <div class="brand-logo" aria-hidden="true">
-            <!-- small icon -->
-            <svg
-              width="36"
-              height="36"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <rect width="24" height="24" rx="5" fill="#E8F9EE" />
-              <path
-                d="M7 10.5C7 8.57 8.57 7 10.5 7C11.54 7 12.45 7.45 13 8.18C13.55 7.45 14.46 7 15.5 7C17.43 7 19 8.57 19 10.5C19 14.25 13 17.75 13 17.75C13 17.75 7 14.25 7 10.5Z"
-                fill="#18A46A"
-              />
-            </svg>
-          </div>
           <div class="brand-text">
             <strong>Bridge of Hope</strong>
           </div>
@@ -39,10 +22,18 @@
 
         <nav class="nav">
           <ul>
-            <li class="nav-item active">🏠 <span>Dashboard</span></li>
-            <li class="nav-item">➕ <span>Add Donation</span></li>
-            <li class="nav-item">📜 <span>Donation History</span></li>
-            <li class="nav-item">📍 <span>Track Donations</span></li>
+            <a href="../pages/donor_dashboard.html">
+              <li class="nav-item active">🏠 <span>Dashboard</span></li></a
+            >
+            <a href="../pages/donor_reg.html"
+              ><li class="nav-item">➕ <span>Add Donation</span></li></a
+            >
+            <a href="../pages/donor_dashboard.html"
+              ><li class="nav-item">📜 <span>Donation History</span></li></a
+            >
+            <a href="../pages/donation_tracking.html"
+              ><li class="nav-item">📍 <span>Track Donations</span></li></a
+            >
             <li class="nav-item">👤 <span>Profile</span></li>
             <li class="nav-item">⚙️ <span>Settings</span></li>
             <li class="nav-item">↪️ <span>Logout</span></li>
@@ -54,25 +45,6 @@
 
       <!-- MAIN AREA -->
       <div class="main-area">
-        <!-- top header -->
-        <header class="topbar">
-          <div class="top-left">
-            <nav class="top-links">
-              <a href="#">About</a>
-              <a href="#">Contact</a>
-            </nav>
-          </div>
-          <div class="top-right">
-            <button class="icon-btn" aria-label="notifications">🔔</button>
-            <div class="avatar">
-              <img
-                src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=64&q=60"
-                alt="user"
-              />
-            </div>
-          </div>
-        </header>
-
         <!-- page title -->
         <div class="page-header">
           <h1>Donation Tracking</h1>
@@ -177,11 +149,11 @@
             <!-- Assigned NGO -->
             <div class="card ngo-card">
               <h3>Assigned NGO</h3>
-              <div class="ngo-name">Harmony Haven Community Center</div>
-              <div class="ngo-contact">Contact: Maria Rodriguez</div>
-              <div class="ngo-phone">📞 +1 (555) 123-4567</div>
+              <div class="ngo-name">Freshworks Academy student</div>
+              <div class="ngo-contact">Contact: Hariharan</div>
+              <div class="ngo-phone">📞 9360923190</div>
               <div class="ngo-address">
-                📍 123 Hope Lane, Cityville, CA 90210
+                📍 perugudi, chennai-41
               </div>
               <p class="ngo-desc muted">
                 Providing warm meals and a safe space for families in need.
@@ -192,22 +164,10 @@
             <div class="card gallery-card">
               <h3>Proof Gallery</h3>
               <div class="gallery-grid">
-                <img
-                  src="https://images.unsplash.com/photo-1541534401786-7fbe7c8a1f44?auto=format&fit=crop&w=400&q=60"
-                  alt="proof 1"
-                />
-                <img
-                  src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=400&q=60"
-                  alt="proof 2"
-                />
-                <img
-                  src="https://images.unsplash.com/photo-1531123414780-f0e06e3f0f4b?auto=format&fit=crop&w=400&q=60"
-                  alt="proof 3"
-                />
-                <img
-                  src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=400&q=60"
-                  alt="proof 4"
-                />
+                <img src="../assets/food_don_img1.jpg" alt="proof 1" />
+                <img src="../assets/food_don_img2.jpg" alt="proof 2" />
+                <img src="../assets/food_don_img3.jpg" alt="proof 3" />
+                <img src="../assets/food_don_img4.jpg" alt="proof 4" />
               </div>
             </div>
           </aside>
