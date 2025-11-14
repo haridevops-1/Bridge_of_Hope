@@ -363,3 +363,6 @@ a:focus {
   outline-offset: 3px;
   border-radius: 8px;
 }
+.nav ul a{
+  text-decoration: none;
+}

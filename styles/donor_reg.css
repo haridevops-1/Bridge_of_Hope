@@ -454,7 +454,6 @@ textarea:focus {
   outline-offset: 2px;
   border-radius: 8px;
 }
-
-/* ===============
-   REDUCED MOTION
-   =============== */
+.nav ul a{
+  text-decoration: none;
+}

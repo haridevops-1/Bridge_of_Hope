@@ -7,6 +7,8 @@
     <link href="../styles/volunteer_dashboard.css" rel="stylesheet" />
   </head>
   <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+
     <div class="app-shell">
       <!-- LEFT SIDEBAR (static) -->
       <aside class="sidebar" aria-label="Primary navigation">
@@ -19,6 +21,7 @@
               viewBox="0 0 24 24"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
             >
               <rect width="24" height="24" rx="6" fill="#E6F9EE" />
               <path
@@ -32,24 +35,29 @@
 
         <nav class="nav" aria-label="Main menu">
           <ul>
-            <li class="nav-item active">
+            <li
+              class="nav-item active"
+              tabindex="0"
+              role="button"
+              aria-current="page"
+            >
               <span>🏠</span><span style="margin-left: 8px">Dashboard</span>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" tabindex="0" role="button">
               <span>📦</span
               ><span style="margin-left: 8px">Pickup Requests</span>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" tabindex="0" role="button">
               <span>✅</span
               ><span style="margin-left: 8px">Completed Deliveries</span>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" tabindex="0" role="button">
               <span>👤</span><span style="margin-left: 8px">Profile</span>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" tabindex="0" role="button">
               <span>⚙️</span><span style="margin-left: 8px">Settings</span>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" tabindex="0" role="button">
               <span>↪️</span><span style="margin-left: 8px">Logout</span>
             </li>
           </ul>
@@ -58,36 +66,25 @@
         <div class="collapse">⟨ Collapse</div>
       </aside>
 
-      <!-- Topbar -->
-      <header class="topbar" role="banner">
-        <div class="topbar-left">
-          <h1 class="top-title">Volunteer Dashboard</h1>
-        </div>
-        <div class="topbar-right">
-          <button class="notif" aria-hidden="true">🔔</button>
-          <div class="avatar">
-            <img
-              src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=64&q=60"
-              alt="User avatar"
-            />
-          </div>
-        </div>
-      </header>
-
       <!-- MAIN GRID -->
-      <main class="main-grid">
+      <main
+        id="main"
+        class="main-grid"
+        role="main"
+        aria-labelledby="dashboard-heading"
+      >
         <!-- Left content -->
-        <section class="content">
+        <section class="content" aria-label="Main content">
           <!-- Assigned Pickups -->
-          <section class="section">
-            <h2 class="section-title">
+          <section class="section" aria-labelledby="assigned-title">
+            <h2 id="assigned-title" class="section-title">
               Assigned Pickups <span class="muted">(3)</span>
             </h2>
 
             <div class="cards-grid assigned-grid" aria-label="Assigned pickups">
               <!-- Card 1 -->
-              <article class="card pickup-card">
-                <h3 class="card-title">Fresh Farms Market</h3>
+              <article class="card pickup-card" aria-labelledby="card1-title">
+                <h3 id="card1-title" class="card-title">Fresh Farms Market</h3>
                 <p class="card-sub">Mixed seasonal fruits and vegetables</p>
 
                 <div class="meta">
@@ -100,8 +97,8 @@
               </article>
 
               <!-- Card 2 -->
-              <article class="card pickup-card">
-                <h3 class="card-title">Community Garden</h3>
+              <article class="card pickup-card" aria-labelledby="card2-title">
+                <h3 id="card2-title" class="card-title">Community Garden</h3>
                 <p class="card-sub">Surplus organic herbs</p>
 
                 <div class="meta">
@@ -119,7 +116,7 @@
                   <img
                     class="profile-photo"
                     src="https://images.unsplash.com/photo-1545996124-1b9e1b9b8b9d?auto=format&fit=crop&w=128&q=60"
-                    alt="Aisha Khan"
+                    alt="Aisha Khan — profile photo"
                   />
                   <div class="profile-name">Aisha Khan</div>
                 </div>
@@ -127,18 +124,18 @@
                   <div>
                     <span style="font-size: 18px">🚚</span>
                     <div style="font-weight: 800">145</div>
-                    <div class="muted" style="font-size: 12px">Deliveries</div>
+                    <div class="muted small">Deliveries</div>
                   </div>
                   <div>
                     <div style="font-weight: 800">4.8</div>
-                    <div class="muted" style="font-size: 12px">Rating</div>
+                    <div class="muted small">Rating</div>
                   </div>
                 </div>
               </aside>
 
               <!-- Card 3 -->
-              <article class="card pickup-card">
-                <h3 class="card-title">Local Cafe</h3>
+              <article class="card pickup-card" aria-labelledby="card3-title">
+                <h3 id="card3-title" class="card-title">Local Cafe</h3>
                 <p class="card-sub">Day-old sandwiches and salads</p>
 
                 <div class="meta">
@@ -153,8 +150,8 @@
           </section>
 
           <!-- In Progress -->
-          <section class="section">
-            <h2 class="section-title">
+          <section class="section" aria-labelledby="inprogress-title">
+            <h2 id="inprogress-title" class="section-title">
               In Progress Deliveries <span class="muted">(2)</span>
             </h2>
 
@@ -162,8 +159,11 @@
               class="cards-grid inprogress-grid"
               aria-label="In progress deliveries"
             >
-              <article class="card small-card inroute">
-                <h3 class="card-title">Bakehouse Delights</h3>
+              <article
+                class="card small-card inroute"
+                aria-labelledby="inroute1"
+              >
+                <h3 id="inroute1" class="card-title">Bakehouse Delights</h3>
                 <p class="card-sub">Assorted pastries and bread</p>
 
                 <div class="meta">
@@ -174,12 +174,17 @@
 
                 <div class="card-actions">
                   <span class="tag enroute">En Route</span>
-                  <button class="btn primary">Mark Delivery Complete</button>
+                  <button class="btn primary" type="button">
+                    Mark Delivery Complete
+                  </button>
                 </div>
               </article>
 
-              <article class="card small-card inroute">
-                <h3 class="card-title">Healthy Harvest Deli</h3>
+              <article
+                class="card small-card inroute"
+                aria-labelledby="inroute2"
+              >
+                <h3 id="inroute2" class="card-title">Healthy Harvest Deli</h3>
                 <p class="card-sub">Prepared meals, vegetarian options</p>
 
                 <div class="meta">
@@ -190,15 +195,17 @@
 
                 <div class="card-actions">
                   <span class="tag enroute">En Route</span>
-                  <button class="btn primary">Mark Delivery Complete</button>
+                  <button class="btn primary" type="button">
+                    Mark Delivery Complete
+                  </button>
                 </div>
               </article>
             </div>
           </section>
 
           <!-- Completed -->
-          <section class="section">
-            <h2 class="section-title">
+          <section class="section" aria-labelledby="completed-title">
+            <h2 id="completed-title" class="section-title">
               Completed Deliveries <span class="muted">(1)</span>
             </h2>
 
@@ -206,8 +213,8 @@
               class="cards-grid completed-grid"
               aria-label="Completed deliveries"
             >
-              <article class="card completed-card">
-                <h3 class="card-title">MegaMart Superstore</h3>
+              <article class="card completed-card" aria-labelledby="completed1">
+                <h3 id="completed1" class="card-title">MegaMart Superstore</h3>
                 <p class="card-sub">Canned goods and dry pasta</p>
 
                 <div class="meta">
@@ -223,19 +230,25 @@
         </section>
 
         <!-- Right column -->
-        <aside class="sidebar-right">
-          <div class="large-profile card">
+        <aside class="sidebar-right" aria-label="Profile summary">
+          <div
+            class="large-profile card"
+            role="region"
+            aria-labelledby="profile-heading"
+          >
             <div class="profile-top big">
               <img
                 class="profile-photo"
                 src="https://images.unsplash.com/photo-1545996124-1b9e1b9b8b9d?auto=format&fit=crop&w=160&q=60"
-                alt="Aisha Khan"
+                alt="Aisha Khan — profile photo"
               />
-              <div class="profile-name big">Aisha Khan</div>
+              <div id="profile-heading" class="profile-name big">
+                Aisha Khan
+              </div>
             </div>
 
             <div
-              class="profile-stats"
+              class="profile-stats center"
               style="
                 display: flex;
                 gap: 20px;
@@ -245,18 +258,18 @@
             >
               <div style="text-align: center">
                 <div style="font-weight: 900">145</div>
-                <div class="muted" style="font-size: 12px">Deliveries</div>
+                <div class="muted small">Deliveries</div>
               </div>
               <div style="text-align: center">
                 <div style="font-weight: 900">4.8</div>
-                <div class="muted" style="font-size: 12px">Rating</div>
+                <div class="muted small">Rating</div>
               </div>
             </div>
           </div>
         </aside>
       </main>
 
-      <footer class="footer">
+      <footer class="footer" role="contentinfo">
         © 2025 Bridge of Hope. All rights reserved.
       </footer>
     </div>

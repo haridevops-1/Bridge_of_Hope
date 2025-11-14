@@ -9,29 +9,56 @@
   --maxw: 1180px;
   --gutter: 24px;
 }
+
+/* Reset / base */
 * {
   box-sizing: border-box;
 }
+html, body {
+  height: 100%;
+}
 body {
   margin: 0;
-  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   color: #101820;
   background: var(--bg);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  line-height: 1.35;
 }
 
 /* ---------- App shell (centered + consistent padding) ---------- */
 .app-shell {
   width: 100%;
   max-width: var(--maxw);
-  margin: 18px auto; /* center the whole app */
-  padding: 0 18px; /* consistent outer padding */
+  margin: 18px auto;
+  padding: 0 18px;
   display: grid;
   grid-template-columns: 260px 1fr;
   gap: var(--gutter);
   min-height: 100vh;
   align-items: start;
+}
+
+/* Skip link for keyboard users */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.skip-link:focus {
+  left: 8px;
+  top: 8px;
+  width: auto;
+  height: auto;
+  padding: 8px 12px;
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 0 6px 18px rgba(16,24,40,0.12);
+  z-index: 999;
 }
 
 /* ---------- Sidebar ---------- */
@@ -44,8 +71,6 @@ body {
   flex-direction: column;
   gap: 18px;
   box-shadow: var(--shadow);
-  /* avoid forcing a fixed full viewport height — let content determine height,
-     but keep sidebar visible on tall screens with sticky positioning */
   position: sticky;
   top: 18px;
   max-height: calc(100vh - 36px);
@@ -65,10 +90,12 @@ body {
   place-items: center;
   border-radius: 10px;
   background: #eaf8ef;
+  flex: 0 0 44px;
 }
 .brand-text {
   font-weight: 800;
   color: var(--accent);
+  font-size: 16px;
 }
 
 /* Navigation */
@@ -88,7 +115,13 @@ body {
   border-radius: 10px;
   color: #374151;
   font-weight: 700;
-  cursor: default;
+  cursor: pointer; /* was default -> pointer for accessibility */
+  user-select: none;
+}
+.nav-item:focus,
+.nav-item:hover {
+  outline: none;
+  background: rgba(0,0,0,0.03);
 }
 .nav-item.active {
   background: rgba(31, 164, 99, 0.08);
@@ -102,15 +135,14 @@ body {
 }
 
 /* ---------- Topbar (aligns with app-shell center) ---------- */
-/* Topbar spans the full width of app-shell (not entire viewport) */
 .topbar {
-  grid-column: 1 / -1; /* span both columns */
+  grid-column: 1 / -1;
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 12px;
-  padding: 12px 0; /* vertical spacing only (horizontal alignment inherited from app-shell) */
+  padding: 12px 0;
   background: transparent;
   margin-bottom: 6px;
 }
@@ -128,7 +160,12 @@ body {
   background: transparent;
   border: 0;
   font-size: 20px;
-  cursor: default;
+  cursor: pointer; /* interactive */
+  padding: 6px;
+}
+.notif:focus {
+  outline: 3px solid rgba(31,164,99,0.16);
+  border-radius: 8px;
 }
 .avatar img {
   width: 40px;
@@ -140,14 +177,12 @@ body {
 }
 
 /* ---------- Main grid (content + right aside) ---------- */
-/* We keep this grid inside the centered .app-shell so columns align with sidebar + topbar */
 .main-grid {
   display: grid;
   grid-template-columns: 1fr 320px;
   gap: 24px;
   width: 100%;
   align-items: start;
-  /* make sure main-grid aligns under the topbar properly */
   margin-top: 0;
 }
 
@@ -280,8 +315,13 @@ body {
   border: 0;
   padding: 10px 12px;
   border-radius: 999px;
-  cursor: default;
+  cursor: pointer;
   font-weight: 800;
+  background: transparent;
+  transition: transform 0.08s ease, box-shadow 0.08s ease, opacity 0.08s ease;
+}
+.btn:focus {
+  outline: 3px solid rgba(16,185,129,0.12);
 }
 .btn.primary {
   background: #10b981;
@@ -318,7 +358,23 @@ body {
   font-size: 13px;
 }
 
-/* ---------- Responsive rules (kept and improved) ---------- */
+/* Small polish / responsive */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+h1, h2, h3, h4 {
+  margin: 0;
+}
+
+/* Focus and accessibility helpers */
+[tabindex]:focus,
+button:focus,
+a:focus {
+  outline-offset: 3px;
+}
+
+/* ---------- Responsive rules ---------- */
 @media (max-width: 1100px) {
   .assigned-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -332,14 +388,13 @@ body {
   }
 }
 @media (max-width: 880px) {
-  /* single-column mobile layout */
   .app-shell {
     grid-template-columns: 1fr;
     padding: 0 12px;
   }
   .sidebar {
     display: none;
-  } /* hide left nav on mobile */
+  }
   .topbar {
     grid-column: 1 / -1;
   }
@@ -359,13 +414,11 @@ body {
   }
 }
 
-/* small polish */
-a {
-  color: inherit;
+/* Minor utilities for content spacing used to remove inline styles */
+.center {
+  text-align: center;
 }
-h1,
-h2,
-h3,
-h4 {
-  margin: 0;
+.muted.small {
+  font-size: 12px;
+  color: var(--muted);
 }
