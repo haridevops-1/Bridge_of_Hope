@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Submit a New Donation — Bridge of Hope</title>
+
+    <!-- Google font -->
+    <link href="../styles/donor_reg.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <!-- Sidebar -->
+      <aside class="sidebar" aria-label="Primary navigation">
+        <div class="brand">
+          <div class="logo" aria-hidden="true">
+            <svg
+              width="36"
+              height="36"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect width="24" height="24" rx="5" fill="#E8F9EE" />
+              <path
+                d="M7 10.5C7 8.57 8.57 7 10.5 7C11.54 7 12.45 7.45 13 8.18C13.55 7.45 14.46 7 15.5 7C17.43 7 19 8.57 19 10.5C19 14.25 13 17.75 13 17.75C13 17.75 7 14.25 7 10.5Z"
+                fill="#18A46A"
+              />
+            </svg>
+          </div>
+          <div class="brand-name">Bridge of Hope</div>
+        </div>
+
+        <nav class="nav">
+          <ul>
+            <li class="nav-item">🏠 <span>Dashboard</span></li>
+            <li class="nav-item active">➕ <span>Add Donation</span></li>
+            <li class="nav-item">📜 <span>Donation History</span></li>
+            <li class="nav-item">📍 <span>Track Donations</span></li>
+            <li class="nav-item">👤 <span>Profile</span></li>
+            <li class="nav-item">⚙️ <span>Settings</span></li>
+            <li class="nav-item">↪️ <span>Logout</span></li>
+          </ul>
+        </nav>
+
+        <div class="collapse">⟨ Collapse</div>
+      </aside>
+
+      <!-- Main -->
+      <div class="main">
+        <!-- topbar -->
+        <header class="topbar">
+          <div class="top-left"></div>
+          <div class="top-right">
+            <!-- <button class="icon-btn" aria-label="notifications">🔔</button>
+            <div class="avatar">
+              <img
+                src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=64&q=60"
+                alt="User avatar"
+              />
+            </div> -->
+          </div>
+        </header>
+
+        <!-- content area -->
+        <main class="content">
+          <!-- hero image -->
+          <div class="hero-banner">
+            <img
+              src="../assets/banner_BOH_image.jpg"
+              alt="donation hero"
+            />
+          </div>
+
+          <!-- form card -->
+          <section class="form-card card" aria-labelledby="form-title">
+            <div class="card-header">
+              <h1 id="form-title">
+                <span class="accent">Submit a New Donation</span>
+              </h1>
+            </div>
+
+            <form class="donation-form" id="donationForm" novalidate>
+              <!-- Donation Details -->
+              <fieldset class="fieldset">
+                <legend class="fieldset-title">Donation Details</legend>
+
+                <div class="grid grid-2">
+                  <label class="form-group">
+                    <span class="label">Food Type</span>
+                    <select name="foodType" required>
+                      <option value="">Select a food category</option>
+                      <option>Fresh Produce</option>
+                      <option>Cooked Meals</option>
+                      <option>Packaged Food</option>
+                      <option>Baked Goods</option>
+                      <option>Dairy</option>
+                    </select>
+                  </label>
+
+                  <label class="form-group">
+                    <span class="label">Quantity</span>
+                    <input
+                      type="text"
+                      name="quantity"
+                      placeholder="e.g., 5 kg or 20 servings"
+                      required
+                    />
+                  </label>
+                </div>
+
+                <div class="grid grid-1">
+                  <label class="form-group">
+                    <span class="label">Food Quality</span>
+                    <select name="foodQuality" required>
+                      <option value="">How fresh is the food?</option>
+                      <option>Fresh</option>
+                      <option>Recently Cooked</option>
+                      <option>Day-old (still safe)</option>
+                      <option>Frozen/Packaged</option>
+                    </select>
+                  </label>
+                </div>
+              </fieldset>
+
+              <!-- Pickup Information -->
+              <fieldset class="fieldset">
+                <legend class="fieldset-title">Pickup Information</legend>
+
+                <div class="grid grid-1">
+                  <label class="form-group">
+                    <span class="label">Preferred Pickup Date &amp; Time</span>
+                    <input type="datetime-local" name="pickupDateTime" />
+                  </label>
+                </div>
+
+                <div class="grid grid-1">
+                  <label class="form-group">
+                    <span class="label">Pickup Address</span>
+                    <textarea
+                      name="pickupAddress"
+                      rows="4"
+                      placeholder="Enter full pickup address, including street, city, postal code"
+                    ></textarea>
+                  </label>
+                </div>
+              </fieldset>
+
+              <!-- Recipient & Visuals -->
+              <fieldset class="fieldset">
+                <legend class="fieldset-title">Recipient &amp; Visuals</legend>
+
+                <div class="grid grid-2">
+                  <label class="form-group">
+                    <span class="label">Select Nearby NGO</span>
+                    <select name="ngo">
+                      <option value="">Choose an NGO</option>
+                      <option>Harmony Haven Community Center</option>
+                      <option>Good Plate NGO</option>
+                      <option>City Food Bank</option>
+                    </select>
+                  </label>
+
+                  <label class="form-group upload-field"> </label>
+                </div>
+              </fieldset>
+            </form>
+          </section>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>

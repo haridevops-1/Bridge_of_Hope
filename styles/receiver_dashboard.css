@@ -1,0 +1,403 @@
+/* styles.css — Receiver Dashboard detailed styles */
+
+/* Variables */
+:root {
+  --bg: #fafafa;
+  --card-bg: #ffffff;
+  --muted: #8b98a5;
+  --accent: #18a46a; /* green */
+  --accent-2: #e8f9ee; /* pale green */
+  --border: #eceff1;
+  --text: #111827;
+  --shadow: 0 8px 24px rgba(16, 24, 40, 0.06);
+  --radius: 14px;
+  --max-width: 1180px;
+  --gutter: 24px;
+}
+
+/* Base reset */
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial;
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: var(--bg);
+}
+
+/* App shell layout: sidebar + main */
+.app-shell {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  min-height: 100vh;
+}
+
+/* SIDEBAR */
+.sidebar {
+  background: #fff;
+  border-right: 1px solid var(--border);
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+.brand {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.brand-logo {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.brand-text {
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.nav {
+  flex: 1;
+}
+.nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.nav-item {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  color: #374151;
+  font-weight: 600;
+}
+.nav-item.active {
+  background: rgba(24, 164, 106, 0.08);
+  color: var(--accent);
+}
+
+.collapse {
+  color: var(--muted);
+  font-weight: 600;
+  padding-top: 8px;
+  cursor: pointer;
+}
+
+/* MAIN */
+.main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* topbar */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 28px;
+  border-bottom: 1px solid var(--border);
+  background: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 6;
+}
+.icon-btn {
+  background: none;
+  border: 0;
+  font-size: 18px;
+  cursor: pointer;
+}
+.avatar img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* container and page title */
+.container {
+  max-width: var(--max-width);
+  margin: 18px auto 40px;
+  padding: 0 20px;
+}
+.page-title {
+  margin: 6px 0 18px;
+  font-size: 34px;
+  font-weight: 800;
+}
+
+/* tabs */
+.tabs {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+.tab {
+  background: rgba(15, 23, 39, 0.02);
+  border-radius: 999px;
+  padding: 10px 16px;
+  border: 1px solid transparent;
+  font-weight: 700;
+  cursor: pointer;
+}
+.tab.active {
+  background: linear-gradient(180deg, #ffffff, #f3fff6);
+  border-color: rgba(24, 164, 106, 0.12);
+  color: var(--accent);
+  box-shadow: 0 6px 10px rgba(18, 132, 78, 0.06);
+}
+
+/* filters */
+.filters {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  margin-bottom: 14px;
+}
+.filter label {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: #374151;
+  font-size: 13px;
+}
+.filter select {
+  appearance: none;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: white;
+  font-weight: 600;
+}
+
+/* divider */
+.divider {
+  height: 1px;
+  background: var(--border);
+  margin: 12px 0 20px;
+}
+
+/* CARD GRID */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+  align-items: start;
+}
+
+/* FOOD CARD */
+.food-card {
+  background: var(--card-bg);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  min-height: 520px;
+}
+
+/* media area */
+.card-media {
+  height: 180px;
+  overflow: hidden;
+}
+.card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* body */
+.card-body {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+}
+.donor {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.donor-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--accent-2);
+}
+.donor-name {
+  font-weight: 700;
+}
+.donor-role {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+.food-title {
+  font-size: 18px;
+  margin: 6px 0 0;
+  font-weight: 800;
+  line-height: 1.1;
+}
+.food-desc {
+  margin: 6px 0 0;
+  color: #2f3b3f;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.meta-list {
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+  color: var(--muted);
+  font-size: 13px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* bottom actions */
+.card-actions {
+  margin-top: auto;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 8px;
+}
+.status-pill {
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 13px;
+  border: 1px solid transparent;
+}
+.status-pill.available {
+  background: #fff;
+  color: #374151;
+  border: 1px solid rgba(16, 24, 40, 0.04);
+}
+
+.btn {
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 0;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: none;
+}
+.btn.accept {
+  background: var(--accent);
+  color: #fff;
+}
+.btn.details {
+  background: #fff;
+  border: 1px solid var(--border);
+  color: #374151;
+}
+
+/* footer */
+.footer {
+  margin-top: 28px;
+  padding: 18px;
+  text-align: center;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+  background: #fff;
+}
+
+/* RESPONSIVE ADJUSTMENTS */
+@media (max-width: 1200px) {
+  .card-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 980px) {
+  .app-shell {
+    grid-template-columns: 220px 1fr;
+  }
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .page-title {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 760px) {
+  /* collapse sidebar */
+  .app-shell {
+    grid-template-columns: 1fr;
+  }
+  .sidebar {
+    display: none;
+  }
+  .topbar {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .container {
+    padding-left: 16px;
+    padding-right: 16px;
+    margin-top: 10px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .card-media {
+    height: 200px;
+  }
+  .page-title {
+    font-size: 26px;
+  }
+  .tabs {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .filters {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 420px) {
+  .page-title {
+    font-size: 22px;
+  }
+  .card-body {
+    padding: 12px;
+  }
+  .donor-avatar {
+    width: 32px;
+    height: 32px;
+  }
+  .card-media {
+    height: 160px;
+  }
+}

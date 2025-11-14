@@ -1,0 +1,430 @@
+/* styles.css — detailed styling to match the high-fidelity dashboard
+   Uses CSS variables, grid/flex and responsive breakpoints.
+*/
+
+:root {
+  --bg: #f7f7f7;
+  --card-bg: #ffffff;
+  --muted: #8b98a5;
+  --accent: #1fa463; /* green accent */
+  --accent-2: #e6f9ee;
+  --border: #e9ecef;
+  --text: #111827;
+  --soft-shadow: 0 6px 20px rgba(16, 24, 40, 0.06);
+  --rounded: 12px;
+  --radius-sm: 10px;
+  --max-width: 1180px;
+}
+
+/* Reset-ish */
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--text);
+  background: #fff;
+}
+
+/* App shell */
+.app-shell {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  min-height: 100vh;
+  gap: 0;
+  background: var(--bg);
+}
+
+/* Sidebar (left) */
+.sidebar {
+  background: #fff;
+  border-right: 1px solid var(--border);
+  padding: 22px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+.brand {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.brand-logo {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.brand-name {
+  font-weight: 700;
+  color: var(--accent);
+  font-size: 14px;
+}
+.nav {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+.nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.nav-item {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 10px;
+  border-radius: 10px;
+  color: #374151;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+}
+.nav-item .icon {
+  width: 26px;
+  text-align: center;
+  opacity: 0.9;
+}
+.nav-item.active {
+  background: rgba(31, 164, 99, 0.08);
+  color: var(--accent);
+  box-shadow: none;
+}
+.collapse-btn {
+  margin-top: auto;
+  border: 0;
+  background: none;
+  padding: 12px 6px;
+  color: var(--muted);
+  cursor: pointer;
+  text-align: left;
+}
+
+/* Topbar */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 8;
+  background: transparent;
+  padding: 18px 22px;
+  grid-column: 1 / -1;
+}
+.topbar-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+.top-title {
+  font-size: 28px;
+  font-weight: 800;
+  margin: 0;
+  color: #161823;
+}
+.topbar-right {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+.notif {
+  background: transparent;
+  border: 0;
+  font-size: 20px;
+  cursor: pointer;
+}
+.avatar img {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Main content area grid */
+.main-grid {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 28px;
+  max-width: var(--max-width);
+  margin: 8px auto 32px;
+  padding: 0 18px;
+  align-items: start;
+}
+
+/* Left content column */
+.content {
+}
+
+.section {
+  margin-bottom: 28px;
+  background: transparent;
+}
+.section-title {
+  font-size: 20px;
+  margin: 6px 0 14px;
+  font-weight: 700;
+}
+.muted {
+  color: var(--muted);
+  font-weight: 500;
+  margin-left: 8px;
+  font-size: 14px;
+}
+
+/* Cards grid for assigned pickups */
+.cards-grid {
+  display: grid;
+  gap: 18px;
+  align-items: start;
+}
+
+/* For assigned pickups we want three columns but one of those is profile card */
+.assigned-grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* Small/medium card */
+.card {
+  background: var(--card-bg);
+  border-radius: var(--rounded);
+  padding: 18px;
+  box-shadow: var(--soft-shadow);
+  border: 1px solid var(--border);
+}
+
+/* Pickup card specifics */
+.pickup-card .card-title {
+  margin: 0 0 6px;
+  font-size: 16px;
+  font-weight: 700;
+}
+.card-sub {
+  margin: 0 0 12px;
+  color: var(--muted);
+  font-size: 13px;
+}
+.meta {
+  font-size: 13px;
+  color: #374151;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.badge {
+  display: inline-block;
+  padding: 8px 10px;
+  border-radius: 16px;
+  font-size: 13px;
+  font-weight: 700;
+}
+.badge.assigned {
+  background: #f0f6ff;
+  color: #2563eb;
+  border: 1px solid rgba(37, 99, 235, 0.06);
+}
+.badge.completed {
+  background: #edf7f0;
+  color: var(--accent);
+}
+
+/* Profile small card that appears in assigned cards area */
+.small-profile {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  padding: 18px;
+}
+.small-profile .profile-top {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.profile-photo {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--accent-2);
+}
+.profile-name {
+  margin: 8px 0 0;
+  font-weight: 700;
+}
+.profile-stats {
+  margin-top: 12px;
+  display: flex;
+  gap: 12px;
+  justify-content: space-around;
+  align-items: center;
+}
+
+/* In-progress small cards */
+.small-card .card-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-top: 12px;
+  justify-content: flex-start;
+}
+.tag.enroute {
+  background: #fff7ed;
+  color: #b45309;
+  padding: 6px 8px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 13px;
+}
+.btn {
+  border: 0;
+  padding: 10px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 700;
+}
+.btn.primary {
+  background: #10b981;
+  color: white;
+  box-shadow: 0 6px 10px rgba(16, 185, 129, 0.12);
+}
+
+/* Completed card */
+.completed-card .badge.completed {
+  display: inline-block;
+  margin-top: 12px;
+}
+
+/* Right sidebar large profile */
+.sidebar-right {
+  position: relative;
+  top: 0;
+  padding-top: 4px;
+}
+.large-profile {
+  padding: 22px;
+  text-align: center;
+  border-radius: 14px;
+}
+.profile-top.big {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-direction: column;
+}
+.profile-name.big {
+  margin: 10px 0 0;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+/* Footer */
+.footer {
+  grid-column: 1 / -1;
+  border-top: 1px solid var(--border);
+  padding: 16px 0;
+  background: #fafafa;
+  text-align: center;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* Layout adjustments for the multiple grids below each other */
+.inprogress-grid,
+.completed-grid {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* Responsive breakpoints */
+@media (max-width: 1100px) {
+  .main-grid {
+    grid-template-columns: 1fr 300px;
+    gap: 22px;
+  }
+  .assigned-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 880px) {
+  /* collapse the left sidebar to top area — keep simple visual: hide it */
+  .app-shell {
+    grid-template-columns: 1fr;
+  }
+  .sidebar {
+    display: none;
+  }
+  .topbar {
+    padding: 14px;
+  }
+  .top-title {
+    font-size: 22px;
+  }
+  .main-grid {
+    grid-template-columns: 1fr;
+    padding: 0 14px;
+    margin-bottom: 22px;
+  }
+  .assigned-grid {
+    grid-template-columns: 1fr;
+  }
+  .inprogress-grid {
+    grid-template-columns: 1fr;
+  }
+  .completed-grid {
+    grid-template-columns: 1fr;
+  }
+  .sidebar-right {
+    order: 3;
+  }
+  .profile-card.small-profile {
+    display: flex;
+    order: 2;
+  }
+}
+
+/* Small tweaks */
+.card-title {
+  font-size: 15px;
+}
+.card-sub {
+  color: var(--muted);
+}
+.time,
+.place {
+  font-size: 13px;
+  color: #425058;
+}
+
+/* Accessibility: focus states */
+.nav-item:focus,
+.btn:focus,
+.collapse-btn:focus {
+  outline: 3px solid rgba(31, 164, 99, 0.15);
+  outline-offset: 2px;
+}
+
+/* Utility */
+.flex {
+  display: flex;
+}
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

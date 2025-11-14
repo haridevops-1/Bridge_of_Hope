@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Contact Us — Bridge of Hope</title>
+
+    <!-- Google font -->
+    <link href="../styles/contact_us.css" rel="stylesheet" />
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="site">
+      <!-- top navigation -->
+      <header class="site-header">
+        <div class="header-inner">
+          <div class="brand">
+            <div class="logo" aria-hidden="true">
+              <!-- compact logo -->
+              <svg
+                width="36"
+                height="36"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect width="24" height="24" rx="5" fill="#E8F9EE" />
+                <path
+                  d="M7 10.5C7 8.57 8.57 7 10.5 7C11.54 7 12.45 7.45 13 8.18C13.55 7.45 14.46 7 15.5 7C17.43 7 19 8.57 19 10.5C19 14.25 13 17.75 13 17.75C13 17.75 7 14.25 7 10.5Z"
+                  fill="#18A46A"
+                />
+              </svg>
+            </div>
+            <div class="brand-name">Bridge of Hope</div>
+          </div>
+
+          <nav class="main-nav" aria-label="Main navigation">
+            <a href="#" class="nav-link">Home</a>
+            <a href="#" class="nav-link">About</a>
+            <a href="#" class="nav-link active">Contact</a>
+          </nav>
+
+          <div class="auth">
+            <button class="btn btn-ghost" type="button">Login</button>
+            <button class="btn btn-primary" type="button">Sign Up</button>
+          </div>
+        </div>
+      </header>
+
+      <!-- Hero -->
+      <section class="hero">
+        <div class="hero-inner">
+          <h1 class="hero-title">Get in Touch</h1>
+          <p class="hero-sub">
+            We'd love to hear from you! Reach out to our team for any questions,
+            feedback, or partnership inquiries.
+          </p>
+        </div>
+      </section>
+
+      <!-- Main content -->
+      <main class="container">
+        <div class="contact-grid">
+          <!-- left: form card -->
+          <section class="card form-card" aria-labelledby="contactFormHeading">
+            <h2 id="contactFormHeading" class="card-title">
+              Send Us a Message
+            </h2>
+
+            <form id="contactForm" class="contact-form" novalidate>
+              <label class="form-label">
+                <span class="label-text">Your Name</span>
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="John Doe"
+                  required
+                />
+              </label>
+
+              <label class="form-label">
+                <span class="label-text">Your Email</span>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="john.doe@example.com"
+                  required
+                />
+              </label>
+
+              <label class="form-label">
+                <span class="label-text">Your Message</span>
+                <textarea
+                  name="message"
+                  rows="6"
+                  placeholder="How can we help you?"
+                  required
+                ></textarea>
+              </label>
+
+              <div class="form-actions">
+                <button type="submit" class="btn btn-primary large">
+                  Send Message
+                </button>
+              </div>
+            </form>
+          </section>
+
+          <!-- right column -->
+          <aside class="right-column">
+            <div
+              class="card contact-details"
+              aria-labelledby="contactDetailsHeading"
+            >
+              <h3 id="contactDetailsHeading" class="card-title">
+                Contact Details
+              </h3>
+
+              <ul class="details-list">
+                <li>
+                  <span class="icon">📞</span>
+                  <div>
+                    <div class="detail-label">Phone</div>
+                    <div class="detail-value">+1 (555) 123-4567</div>
+                  </div>
+                </li>
+
+                <li>
+                  <span class="icon">✉️</span>
+                  <div>
+                    <div class="detail-label">Email</div>
+                    <div class="detail-value">info@bridgeofhope.org</div>
+                  </div>
+                </li>
+
+                <li>
+                  <span class="icon">📍</span>
+                  <div>
+                    <div class="detail-label">Address</div>
+                    <div class="detail-value">
+                      123 Hopeful Lane, Suite 400<br />
+                      Charity City, CA 90210<br />
+                      United States
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <div class="card location-card" aria-labelledby="locationHeading">
+              <h3 id="locationHeading" class="card-title">Our Location</h3>
+
+              <div
+                class="map-placeholder"
+                role="img"
+                aria-label="Map placeholder"
+              >
+                <div class="map-text">Map Placeholder</div>
+              </div>
+
+              <p class="map-note">
+                Visit us during business hours or send us a message anytime!
+              </p>
+            </div>
+          </aside>
+        </div>
+      </main>
+
+      <!-- Footer -->
+      <footer class="site-footer">
+        <div class="footer-inner">
+          <div class="footer-brand">
+            <div class="logo-small" aria-hidden="true">
+              <svg
+                width="28"
+                height="28"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect width="24" height="24" rx="5" fill="#E8F9EE" />
+                <path
+                  d="M7 10.5C7 8.57 8.57 7 10.5 7C11.54 7 12.45 7.45 13 8.18C13.55 7.45 14.46 7 15.5 7C17.43 7 19 8.57 19 10.5C19 14.25 13 17.75 13 17.75C13 17.75 7 14.25 7 10.5Z"
+                  fill="#18A46A"
+                />
+              </svg>
+            </div>
+
+            <div class="brand-copy">
+              <div class="brand-title">Bridge of Hope</div>
+              <div class="brand-sub">
+                Bridging surplus food to those in need, fostering hope and
+                reducing waste.
+              </div>
+
+              <div class="socials">
+                <a href="#" aria-label="facebook"></a>
+                <a href="#" aria-label="twitter"></a>
+                <a href="#" aria-label="instagram"></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="footer-links">
+            <div class="col">
+              <h4>Company</h4>
+              <ul>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Mission</a></li>
+                <li><a href="#">Careers</a></li>
+              </ul>
+            </div>
+
+            <div class="col">
+              <h4>Support</h4>
+              <ul>
+                <li><a href="#">Help Center</a></li>
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+              </ul>
+            </div>
+
+            <div class="col">
+              <h4>Connect</h4>
+              <ul>
+                <li><a href="#">Partnerships</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Press</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="legal">© 2025 Bridge of Hope. All rights reserved.</div>
+      </footer>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Create Your Account — Bridge of Hope</title>
+    <link rel="stylesheet" href="../styles/sign_up.css" />
+
+
+  </head>
+  <body>
+    <div class="page">
+      <!-- top header (minimal, matches design spacing) -->
+       <header class="site-header">
+        <div class="header-inner">
+          <div class="brand">
+            <div class="logo" aria-hidden="true">
+              <!-- small logo -->
+              <svg
+                width="36"
+                height="36"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect width="24" height="24" rx="5" fill="#E8F9EE" />
+                <path
+                  d="M7 10.5C7 8.57 8.57 7 10.5 7C11.54 7 12.45 7.45 13 8.18C13.55 7.45 14.46 7 15.5 7C17.43 7 19 8.57 19 10.5C19 14.25 13 17.75 13 17.75C13 17.75 7 14.25 7 10.5Z"
+                  fill="#18A46A"
+                />
+              </svg>
+            </div>
+            <div class="brand-name">Bridge of Hope</div>
+          </div>
+
+          <nav class="main-nav" aria-label="Main navigation">
+            <a href="./landing_page.html" class="nav-link">Home</a>
+            <a href="./about_us.html" class="nav-link">About</a>
+            <a href="./contact _us.html" class="nav-link">Contact</a>
+          </nav>
+
+          <div class="auth">
+            <button class="btn btn-ghost">Login</button>
+            <button class="btn btn-primary">Sign Up</button>
+          </div>
+        </div>
+      </header>
+
+
+      <!-- main centered area -->
+      <main class="center-wrap">
+        <article class="signup-card" aria-labelledby="signup-title">
+          <div class="card-top">
+            <div class="logo-large" aria-hidden="true">
+              <svg
+                width="54"
+                height="54"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect width="24" height="24" rx="5" fill="#E8F9EE" />
+                <path
+                  d="M7 10.5C7 8.57 8.57 7 10.5 7C11.54 7 12.45 7.45 13 8.18C13.55 7.45 14.46 7 15.5 7C17.43 7 19 8.57 19 10.5C19 14.25 13 17.75 13 17.75C13 17.75 7 14.25 7 10.5Z"
+                  fill="#18A46A"
+                />
+              </svg>
+            </div>
+
+            <h1 id="signup-title" class="title">Create Your Account</h1>
+            <p class="subtitle">
+              Join us to make a difference! Select your role below.
+            </p>
+          </div>
+
+          <!-- Choose role -->
+          <div class="section">
+            <div class="section-label">Choose Your Role</div>
+
+            <fieldset
+              class="role-picker"
+              role="radiogroup"
+              aria-label="Choose your role"
+            >
+              <label class="role">
+                <input type="radio" name="role" value="donor" checked />
+                <span class="role-inner">
+                  <span class="role-icon" aria-hidden="true">👤</span>
+                  <span class="role-text">Donor</span>
+                </span>
+              </label>
+
+              <label class="role">
+                <input type="radio" name="role" value="ngo" />
+                <span class="role-inner">
+                  <span class="role-icon" aria-hidden="true">🏢</span>
+                  <span class="role-text">NGO</span>
+                </span>
+              </label>
+
+              <label class="role">
+                <input type="radio" name="role" value="volunteer" />
+                <span class="role-inner">
+                  <span class="role-icon" aria-hidden="true">🤝</span>
+                  <span class="role-text">Volunteer</span>
+                </span>
+              </label>
+            </fieldset>
+          </div>
+
+          <!-- form -->
+          <form class="signup-form" aria-describedby="signup-help" novalidate>
+            <div id="signup-help" class="sr-only">
+              All fields are required unless marked optional.
+            </div>
+
+            <label class="field">
+              <span class="label">Full Name</span>
+              <input
+                type="text"
+                name="fullname"
+                placeholder="John Doe"
+                autocomplete="name"
+                required
+              />
+            </label>
+
+            <label class="field">
+              <span class="label">Email</span>
+              <input
+                type="email"
+                name="email"
+                placeholder="john.doe@example.com"
+                autocomplete="email"
+                required
+              />
+            </label>
+
+            <label class="field">
+              <span class="label">Password</span>
+              <input
+                type="password"
+                name="password"
+                placeholder="••••••••"
+                autocomplete="new-password"
+                required
+              />
+            </label>
+
+            <label class="field">
+              <span class="label">Confirm Password</span>
+              <input
+                type="password"
+                name="confirm_password"
+                placeholder="••••••••"
+                autocomplete="new-password"
+                required
+              />
+            </label>
+
+            <label class="field">
+              <span class="label">Phone Number</span>
+              <input
+                type="tel"
+                name="phone"
+                placeholder="+1 (555) 123-4567"
+                autocomplete="tel"
+                inputmode="tel"
+              />
+            </label>
+
+            <div class="form-actions">
+              <button type="submit" class="btn-primary">Create Account</button>
+            </div>
+
+            <p class="foot-note">
+              Already have an account? <a href="#" class="link">Login</a>
+            </p>
+          </form>
+        </article>
+      </main>
+
+      <footer class="page-footer">
+        © 2025 Bridge of Hope. All rights reserved.
+      </footer>
+    </div>
+  </body>
+</html>
